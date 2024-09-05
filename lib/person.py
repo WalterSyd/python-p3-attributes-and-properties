@@ -16,9 +16,12 @@ APPROVED_JOBS = [
 ]
 
 class Person:
-    def __init__(self, name="Walt"):
+    def __init__(self, name="Walt", job="Pirate"):
         self._name = None
+        self._job = None
         self.name = name
+        self.job = job
+
 
     @property
     def name(self):
@@ -31,5 +34,18 @@ class Person:
         else:
             print("Name must be string between 1 and 25 characters.")
 
-person1 = Person("Onyi")
+
+    @property
+    def job(self):
+        return self._job
+
+    @job.setter
+    def job(self, value):
+        if value in APPROVED_JOBS:
+            self._job = value
+        else:
+            print("Job must be in list of approved jobs.")
+
+person1 = Person("Luffy", "Admin")
 print(person1.name)
+print(person1.job)
